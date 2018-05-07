@@ -34,7 +34,8 @@ SOURCES += \
     praaline-core-lite/interfaces/InterfaceTextFile.cpp \
     praaline-core-lite/interfaces/praat/PraatTextFile.cpp \
     praaline-core-lite/interfaces/praat/PraatTextGrid.cpp \
-    LanguageDefinition.cpp
+    LanguageDefinition.cpp \
+    praaline-core-lite/interfaces/praat/PraatPointTierFile.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -57,7 +58,8 @@ HEADERS += \
     praaline-core-lite/interfaces/InterfaceTextFile.h \
     praaline-core-lite/interfaces/praat/PraatTextFile.h \
     praaline-core-lite/interfaces/praat/PraatTextGrid.h \
-    LanguageDefinition.h
+    LanguageDefinition.h \
+    praaline-core-lite/interfaces/praat/PraatPointTierFile.h
 
 FORMS += \
         MainWindow.ui

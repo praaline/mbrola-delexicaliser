@@ -1,3 +1,18 @@
+/*
+    MBROLA Delexicaliser
+    Language Definition File
+    Copyright (c) 2018 George Christodoulides
+
+    This program or module is free software: you can redistribute it
+    and/or modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation, either version 3 of
+    the License, or (at your option) any later version. It is provided
+    for educational purposes and is distributed in the hope that it will
+    be useful, but WITHOUT ANY WARRANTY; without even the implied
+    warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
+    the GNU General Public License for more details.
+*/
+
 #include <QString>
 #include <QList>
 #include <QStringList>
@@ -5,6 +20,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QTextStream>
+#include <QDir>
 
 #include "LanguageDefinition.h"
 
@@ -119,10 +136,13 @@ bool LanguageDefinition::write(const QString &filename) const
     jsonLanguage["phoneme_groups"] = jsonPhonemeGroupsArray;
     // Possible diphones array
     QJsonArray jsonPossibleDiphonesArray;
+    foreach (QString possibleDiphone, d->possibleDiphones) {
+        jsonPossibleDiphonesArray.append(QJsonValue(possibleDiphone));
+    }
     jsonLanguage["possible_diphones"] = jsonPossibleDiphonesArray;
     // Write out JSON document
     QJsonDocument jsonDoc(jsonLanguage);
-    file.write(jsonDoc.toJson());
+    file.write(jsonDoc.toJson(QJsonDocument::Compact));
     return true;
 }
 

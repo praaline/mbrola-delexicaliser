@@ -1,4 +1,6 @@
 #include <QDir>
+#include <QFile>
+#include <QTextStream>
 
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
@@ -13,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     LanguageDefinition def;
     def.read(QDir::homePath() + "/Develop/mbrola-delexicaliser/resources/French.json");
+
     // def.write(QDir::homePath() + "/Develop/mbrola-delexicaliser/resources/test.json");
     int i = 6;
 }
