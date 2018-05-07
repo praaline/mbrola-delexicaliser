@@ -1,0 +1,76 @@
+{
+    "language": "French",
+    "phoneme_groups": [
+        {
+            "name": "fricatives",
+            "phonemes": [
+                "f",
+                "v",
+                "s",
+                "z",
+                "S",
+                "Z"
+            ]
+        },
+        {
+            "name": "glides",
+            "phonemes": [
+                "w",
+                "H",
+                "j"
+            ]
+        },
+        {
+            "name": "liquids",
+            "phonemes": [
+                "l",
+                "R"
+            ]
+        },
+        {
+            "name": "nasals",
+            "phonemes": [
+                "m",
+                "n"
+            ]
+        },
+        {
+            "name": "plosives",
+            "phonemes": [
+                "p",
+                "b",
+                "t",
+                "d",
+                "k",
+                "g"
+            ]
+        },
+        {
+            "name": "vowels",
+            "phonemes": [
+                "i",
+                "e",
+                "E",
+                "a",
+                "A",
+                "o",
+                "O",
+                "y",
+                "2",
+                "9"
+            ]
+        },
+        {
+            "name": "vowels_nasal",
+            "phonemes": [
+                "e~",
+                "a~",
+                "o~",
+                "9~"
+            ]
+        }
+    ],
+    "phoneset": "SAMPA",
+    "possible_diphones": [
+    ]
+}
