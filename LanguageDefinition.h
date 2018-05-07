@@ -4,7 +4,6 @@
 #include <QString>
 #include <QStringList>
 #include <QMap>
-#include <QJsonDocument>
 
 struct LanguageDefinitionData;
 
@@ -14,8 +13,8 @@ public:
     LanguageDefinition();
     ~LanguageDefinition();
 
-    void read(const QJsonDocument &json);
-    void write(QJsonDocument &json) const;
+    bool read(const QString &filename);
+    bool write(const QString &filename) const;
 
     QString language() const;
     QString phoneset() const;
