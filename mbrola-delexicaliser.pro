@@ -63,3 +63,6 @@ HEADERS += \
 
 FORMS += \
         MainWindow.ui
+
+RESOURCES += \
+    mbrola-delexicaliser-gui-resources.qrc
