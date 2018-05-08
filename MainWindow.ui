@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>DisMo Annotator v. 0.4 BETA 3</string>
+   <string>MBROLA Delexicaliser v. 1.0</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/dismo/icons/corpus_annotation.png</normaloff>:/dismo/icons/corpus_annotation.png</iconset>
+   <iconset resource="mbrola-delexicaliser-gui-resources.qrc">
+    <normaloff>:/delexicaliser/icons/annotation.png</normaloff>:/delexicaliser/icons/annotation.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_6">
@@ -52,13 +52,10 @@
           <property name="windowTitle">
            <string>toolBar</string>
           </property>
-          <addaction name="actionCorpusNew"/>
-          <addaction name="actionCorpusOpen"/>
-          <addaction name="actionCorpusSave"/>
           <addaction name="separator"/>
-          <addaction name="actionCorpusAddFile"/>
-          <addaction name="actionCorpusRemoveFile"/>
-          <addaction name="actionCorpusAddFromFolder"/>
+          <addaction name="actionAddFile"/>
+          <addaction name="actionRemoveFile"/>
+          <addaction name="actionAddFromFolder"/>
          </widget>
         </item>
         <item row="1" column="0">
@@ -82,7 +79,7 @@
        <property name="tabsClosable">
         <bool>true</bool>
        </property>
-       <widget class="QWidget" name="tabDismo">
+       <widget class="QWidget" name="tabDelexicaliser">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -90,7 +87,7 @@
          </sizepolicy>
         </property>
         <attribute name="title">
-         <string>DisMo</string>
+         <string>MBROLA Delexicaliser</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_7">
          <item row="0" column="0">
@@ -104,75 +101,13 @@
               </sizepolicy>
              </property>
              <property name="title">
-              <string>Tiers</string>
+              <string>Output</string>
              </property>
              <layout class="QGridLayout" name="gridLayout">
-              <item row="3" column="0">
-               <widget class="QCheckBox" name="checkOutputDisfluencies">
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkSaveDelexicalisedTxg">
                 <property name="text">
-                 <string>Disfluencies</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="2">
-               <widget class="QCheckBox" name="checkOutputDiscourse">
-                <property name="text">
-                 <string>Discourse</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1" colspan="2">
-               <widget class="QLineEdit" name="editDismoTierPrefix">
-                <property name="text">
-                 <string>dismo-</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkOutputTokMin">
-                <property name="text">
-                 <string>Tokens (Minimal)</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>DisMo tiers prefix:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QCheckBox" name="checkOutputTokMWU">
-                <property name="text">
-                 <string>Tokens (MWU)</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QCheckBox" name="checkOutputBoundaries">
-                <property name="text">
-                 <string>Boundaries</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="QCheckBox" name="checkOutputPOSMin">
-                <property name="text">
-                 <string>POS (Minimal)</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2">
-               <widget class="QCheckBox" name="checkOutputPOSMWU">
-                <property name="text">
-                 <string>POS (MWU)</string>
+                 <string>Save Delexicalised Textgrid</string>
                 </property>
                </widget>
               </item>
@@ -180,7 +115,7 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QGroupBox" name="groupBoxOutput">
+            <widget class="QGroupBox" name="groupBoxParameters">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>1</horstretch>
@@ -188,52 +123,38 @@
               </sizepolicy>
              </property>
              <property name="title">
-              <string>Annotation options</string>
+              <string>Options</string>
              </property>
              <layout class="QFormLayout" name="formLayout_2">
               <item row="0" column="0">
-               <widget class="QCheckBox" name="checkAddAnnotations">
+               <widget class="QCheckBox" name="checkDelexicalise">
                 <property name="text">
-                 <string>Add DisMo annotation tiers to the selected corpus items (TextGrid and Table files).</string>
+                 <string>Delexicalise</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="0">
                <layout class="QGridLayout" name="gridLayout_4">
-                <item row="0" column="0">
-                 <widget class="QCheckBox" name="checkCreateCopies">
+                <item row="0" column="1">
+                 <widget class="QLineEdit" name="editFilenameLDF">
                   <property name="text">
-                   <string>Create copies of TextGrid files with the following suffix:</string>
+                   <string/>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <widget class="QLineEdit" name="editSuffix">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="labelFilenameLDF">
                   <property name="text">
-                   <string>_dismo</string>
+                   <string>Language Definition File:</string>
                   </property>
                  </widget>
                 </item>
                </layout>
               </item>
-              <item row="2" column="0">
-               <widget class="QCheckBox" name="checkCreateTablesEach">
-                <property name="text">
-                 <string>Create a tab-separated file for each corpus item annotated.</string>
-                </property>
-               </widget>
-              </item>
               <item row="3" column="0">
-               <widget class="QCheckBox" name="checkCreateTableFull">
-                <property name="text">
-                 <string>Create a tab-separated file for the entire corpus.</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
                <layout class="QGridLayout" name="gridLayout_5">
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label">
+                 <widget class="QLabel" name="labelPhoneTier">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                     <horstretch>0</horstretch>
@@ -241,27 +162,14 @@
                    </sizepolicy>
                   </property>
                   <property name="text">
-                   <string>Tier to annotate:</string>
+                   <string>Tier containing phones:</string>
                   </property>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLineEdit" name="editInputTier"/>
+                 <widget class="QLineEdit" name="editPhoneTier"/>
                 </item>
                </layout>
-              </item>
-              <item row="4" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkOverwrite">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Overwrite existing files without asking.</string>
-                </property>
-               </widget>
               </item>
              </layout>
             </widget>
@@ -271,9 +179,9 @@
          <item row="1" column="0">
           <layout class="QGridLayout" name="gridLayoutBottom">
            <item row="0" column="0">
-            <widget class="QCommandLinkButton" name="commandAnnotate">
+            <widget class="QCommandLinkButton" name="commandDelexicalise">
              <property name="text">
-              <string>Annotate!</string>
+              <string>Delexicalise!</string>
              </property>
             </widget>
            </item>
@@ -281,23 +189,13 @@
             <widget class="QTextBrowser" name="textProgress"/>
            </item>
            <item row="2" column="0">
-            <widget class="QProgressBar" name="progressBarAnnotation">
+            <widget class="QProgressBar" name="progressBar">
              <property name="value">
               <number>0</number>
              </property>
             </widget>
            </item>
           </layout>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="tabResults">
-        <attribute name="title">
-         <string>Results</string>
-        </attribute>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="0">
-          <widget class="QTableView" name="tableviewResults"/>
          </item>
         </layout>
        </widget>
@@ -312,107 +210,55 @@
      <x>0</x>
      <y>0</y>
      <width>1305</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionCorpusNew"/>
-    <addaction name="actionCorpusOpen"/>
-    <addaction name="actionCorpusSave"/>
-    <addaction name="actionCorpusSaveAs"/>
     <addaction name="separator"/>
-    <addaction name="actionCorpusAddFile"/>
-    <addaction name="actionCorpusRemoveFile"/>
-    <addaction name="actionCorpusAddFromFolder"/>
+    <addaction name="actionAddFile"/>
+    <addaction name="actionRemoveFile"/>
+    <addaction name="actionAddFromFolder"/>
     <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuAnnotator">
     <property name="title">
-     <string>Annotate</string>
+     <string>Delexicalise</string>
     </property>
-    <addaction name="actionAnnotate"/>
-    <addaction name="actionEvaluation"/>
-   </widget>
-   <widget class="QMenu" name="menuData">
-    <property name="title">
-     <string>Data</string>
-    </property>
-    <addaction name="actionLoadTabFileForCorpus"/>
-    <addaction name="actionSaveTextgrids"/>
-    <addaction name="separator"/>
-    <addaction name="actionSaveTabFiles"/>
-    <addaction name="actionSaveTabFileForCorpus"/>
+    <addaction name="actionDelexicalise"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuAnnotator"/>
-   <addaction name="menuData"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionCorpusAddFile">
+  <action name="actionAddFile">
    <property name="icon">
-    <iconset>
-     <normaloff>:/dismo/icons/add_file.png</normaloff>:/dismo/icons/add_file.png</iconset>
+    <iconset resource="mbrola-delexicaliser-gui-resources.qrc">
+     <normaloff>:/delexicaliser/icons/add_file.png</normaloff>:/delexicaliser/icons/add_file.png</iconset>
    </property>
    <property name="text">
-    <string>Add File to Corpus...</string>
+    <string>Add File...</string>
    </property>
   </action>
-  <action name="actionCorpusRemoveFile">
+  <action name="actionRemoveFile">
    <property name="icon">
-    <iconset>
-     <normaloff>:/dismo/icons/remove_file.png</normaloff>:/dismo/icons/remove_file.png</iconset>
+    <iconset resource="mbrola-delexicaliser-gui-resources.qrc">
+     <normaloff>:/delexicaliser/icons/remove_file.png</normaloff>:/delexicaliser/icons/remove_file.png</iconset>
    </property>
    <property name="text">
     <string>Remove File</string>
    </property>
   </action>
-  <action name="actionCorpusAddFromFolder">
+  <action name="actionAddFromFolder">
    <property name="icon">
-    <iconset>
-     <normaloff>:/dismo/icons/add_folder.png</normaloff>:/dismo/icons/add_folder.png</iconset>
+    <iconset resource="mbrola-delexicaliser-gui-resources.qrc">
+     <normaloff>:/delexicaliser/icons/add_folder.png</normaloff>:/delexicaliser/icons/add_folder.png</iconset>
    </property>
    <property name="text">
     <string>Add Files From Folder...</string>
-   </property>
-  </action>
-  <action name="actionCorpusNew">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/dismo/icons/corpus_new.png</normaloff>:/dismo/icons/corpus_new.png</iconset>
-   </property>
-   <property name="text">
-    <string>New Corpus</string>
-   </property>
-  </action>
-  <action name="actionCorpusOpen">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/dismo/icons/corpus_open.png</normaloff>:/dismo/icons/corpus_open.png</iconset>
-   </property>
-   <property name="text">
-    <string>Open Corpus...</string>
-   </property>
-  </action>
-  <action name="actionCorpusSave">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/dismo/icons/corpus_save.png</normaloff>:/dismo/icons/corpus_save.png</iconset>
-   </property>
-   <property name="text">
-    <string>Save Corpus</string>
-   </property>
-  </action>
-  <action name="actionCorpusSaveAs">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/dismo/icons/corpus_saveas.png</normaloff>:/dismo/icons/corpus_saveas.png</iconset>
-   </property>
-   <property name="text">
-    <string>Save Corpus As...</string>
    </property>
   </action>
   <action name="actionQuit">
@@ -420,37 +266,24 @@
     <string>Quit</string>
    </property>
   </action>
-  <action name="actionAnnotate">
+  <action name="actionDelexicalise">
    <property name="text">
-    <string>Annotate Corpus</string>
-   </property>
-  </action>
-  <action name="actionEvaluation">
-   <property name="text">
-    <string>Evaluate Annotator</string>
-   </property>
-  </action>
-  <action name="actionSaveTextgrids">
-   <property name="text">
-    <string>Save Textgrids</string>
-   </property>
-  </action>
-  <action name="actionSaveTabFiles">
-   <property name="text">
-    <string>Export Tab-separated Files...</string>
-   </property>
-  </action>
-  <action name="actionSaveTabFileForCorpus">
-   <property name="text">
-    <string>Export Tab-separated File for Entire Corpus...</string>
-   </property>
-  </action>
-  <action name="actionLoadTabFileForCorpus">
-   <property name="text">
-    <string>Load Tab-separated File...</string>
+    <string>Delexicalise Files</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <tabstops>
+  <tabstop>treeviewCorpus</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>checkDelexicalise</tabstop>
+  <tabstop>editFilenameLDF</tabstop>
+  <tabstop>editPhoneTier</tabstop>
+  <tabstop>checkSaveDelexicalisedTxg</tabstop>
+  <tabstop>commandDelexicalise</tabstop>
+  <tabstop>textProgress</tabstop>
+ </tabstops>
+ <resources>
+  <include location="mbrola-delexicaliser-gui-resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
