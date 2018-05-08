@@ -1,9 +1,9 @@
-#ifndef PSEUDOLANGUAGE_H
-#define PSEUDOLANGUAGE_H
+#ifndef MBROLARESYNTHESISER_H
+#define MBROLARESYNTHESISER_H
 
 /*
     MBROLA Delexicaliser
-    Pseudolanguage Generator
+    Resynthesiser
     Copyright (c) 2018 George Christodoulides
 
     This program or module is free software: you can redistribute it
@@ -17,9 +17,6 @@
 */
 
 #include <QString>
-#include "LanguageDefinition.h"
-
-struct PseudoLanguageData;
 
 namespace Praaline {
 namespace Core {
@@ -27,23 +24,19 @@ class IntervalTier;
 }
 }
 
-class PseudoLanguage
+struct MBROLAResynthesiserData;
+
+class MBROLAResynthesiser
 {
 public:
-    PseudoLanguage();
-    ~PseudoLanguage();
+    MBROLAResynthesiser();
+    ~MBROLAResynthesiser();
 
-    void substitutePhonemes(const LanguageDefinition &language,
-                            Praaline::Core::IntervalTier *tier_phones, const QString &attributeID);
+    QString createPhoFile(const QString &filenamePho, Praaline::Core::IntervalTier *tier_phone,
+                          const QString &attributePhoneLabels, const QString &filenamePitchTier);
 
 private:
-    PseudoLanguageData *d;
-
-    int randInt(int low, int high);
-    QString substitutePhoneme(const LanguageDefinition &language,
-                              const QString &phoneme, const QString &contextLeft, const QString &contextRight,
-                              const QString &phonemeClassName);
-
+    MBROLAResynthesiserData *d;
 };
 
-#endif // PSEUDOLANGUAGE_H
+#endif // MBROLARESYNTHESISER_H

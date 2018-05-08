@@ -1,6 +1,7 @@
 { 	"language" : "French",
 	"phoneme_groups" : [
-		{"name" : "fricatives","phonemes" : ["f","v","s","z","S","Z"]},
+		{"name" : "fricativesL","phonemes" : ["f","v","s","z"]},
+		{"name" : "fricativesF","phonemes" : ["S","Z"]},
 		{"name" : "glides","phonemes" : ["w","H","j"]},
 		{"name" : "liquids","phonemes" : ["l","R"]},
 		{"name" : "nasals","phonemes" : ["m","n"]},

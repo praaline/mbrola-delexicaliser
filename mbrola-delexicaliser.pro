@@ -19,7 +19,6 @@ SOURCES += \
     main.cpp \
     MainWindow.cpp \
     PseudoLanguage.cpp \
-    MBROLADelexicaliser.cpp \
     praaline-core-lite/annotation/AnnotationDataTable.cpp \
     praaline-core-lite/annotation/AnnotationElement.cpp \
     praaline-core-lite/annotation/AnnotationTier.cpp \
@@ -35,12 +34,12 @@ SOURCES += \
     praaline-core-lite/interfaces/praat/PraatTextFile.cpp \
     praaline-core-lite/interfaces/praat/PraatTextGrid.cpp \
     LanguageDefinition.cpp \
-    praaline-core-lite/interfaces/praat/PraatPointTierFile.cpp
+    praaline-core-lite/interfaces/praat/PraatPointTierFile.cpp \
+    MBROLAResynthesiser.cpp
 
 HEADERS += \
         MainWindow.h \
     PseudoLanguage.h \
-    MBROLADelexicaliser.h \
     praaline-core-lite/annotation/AnnotationDataTable.h \
     praaline-core-lite/annotation/AnnotationElement.h \
     praaline-core-lite/annotation/AnnotationTier.h \
@@ -59,7 +58,8 @@ HEADERS += \
     praaline-core-lite/interfaces/praat/PraatTextFile.h \
     praaline-core-lite/interfaces/praat/PraatTextGrid.h \
     LanguageDefinition.h \
-    praaline-core-lite/interfaces/praat/PraatPointTierFile.h
+    praaline-core-lite/interfaces/praat/PraatPointTierFile.h \
+    MBROLAResynthesiser.h
 
 FORMS += \
         MainWindow.ui
