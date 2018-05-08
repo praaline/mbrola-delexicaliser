@@ -1,2 +1,4 @@
-# mbrola-delexicaliser
-Create de-lexicalised stimuli from a recording and phonetic transcription, keeping the same prosodic parameters, using the MBROLA speech synthesiser
+# MBROLA Delexicaliser
+
+MBROLA Delexicaliser is a software tool for creating delexicalised stimuli (i.e. stimuli in which it is impossible for the listener to understand the lexical content) on the basis of existing recordings and time-aligned phonetic transcriptions. While the generated stimuli retain the prosodic characteristics (duration, pitch contours) of the initial recordings, each phoneme of the original stimulus is replaced with another phoneme from the same class of phonemes. The tool generates synthesis files for the MBROLA multilingual speech synthesiser, which is free for non-commercial, non-military use. The resulting stimuli sound like speech in a pseudo-language similar to the original language and have similar prosody, but the lexical content is completely hidden. This technique is often more effective than low-pass filtering for de-lexicalisation.
+
