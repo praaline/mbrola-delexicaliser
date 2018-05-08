@@ -17,10 +17,6 @@
 
 #include <QtCore/qglobal.h>
 
-#if defined(PRAALINE_CORE_LIBRARY)
-#  define PRAALINE_CORE_SHARED_EXPORT Q_DECL_EXPORT
-#else
-#  define PRAALINE_CORE_SHARED_EXPORT Q_DECL_IMPORT
-#endif
+#define PRAALINE_CORE_SHARED_EXPORT
 
 #endif // PNCORE_GLOBAL_H

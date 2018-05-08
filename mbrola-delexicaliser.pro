@@ -59,7 +59,8 @@ HEADERS += \
     praaline-core-lite/interfaces/praat/PraatTextGrid.h \
     LanguageDefinition.h \
     praaline-core-lite/interfaces/praat/PraatPointTierFile.h \
-    MBROLAResynthesiser.h
+    MBROLAResynthesiser.h \
+    praaline-core-lite/pncore_global.h
 
 FORMS += \
         MainWindow.ui

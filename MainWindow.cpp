@@ -21,6 +21,7 @@
 #include <QAbstractItemModel>
 #include <QStandardItemModel>
 #include <QApplication>
+#include <QLineEdit>
 
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
@@ -51,6 +52,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->editPhoneTier->setText("phone");
     ui->checkDelexicalise->setChecked(true);
     ui->checkSaveDelexicalisedTxg->setChecked(true);
+    // Notice
+    ui->statusbar->showMessage("(c) George Christodoulides, 2018. MBROLA Delexicaliser is free, open-source software (GPL3).");
 }
 
 MainWindow::~MainWindow()
@@ -151,7 +154,7 @@ void MainWindow::on_actionDelexicalise_triggered()
         return;
     }
     // Phones tier
-    if (ui->editPhoneTier->text.trimmed().isEmpty()) {
+    if (ui->editPhoneTier->text().trimmed().isEmpty()) {
         QMessageBox::warning(this, "Delexicaliser", "Please give the name of the tier containing the phones.");
         return;
     }
