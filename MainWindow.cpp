@@ -47,7 +47,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->commandDelexicalise, SIGNAL(clicked(bool)), this, SLOT(on_actionDelexicalise_triggered()));
     // Language definition file default path
-    ui->editFilenameLDF->setText(QCoreApplication::applicationDirPath() + "/resources/French.json");
+    QString applicationDirPath = QApplication::applicationDirPath();
+    applicationDirPath = applicationDirPath.replace("/mbrola-delexicaliser.app/Contents/MacOS", "");
+    ui->editFilenameLDF->setText(applicationDirPath + "/resources/French.json");
     // Default settings
     ui->editPhoneTier->setText("phone");
     ui->checkDelexicalise->setChecked(true);
