@@ -163,16 +163,20 @@ void MainWindow::on_actionDelexicalise_triggered()
     PseudoLanguage pseudo;
     MBROLAResynthesiser resynth;
     foreach (QString filename, d->files) {
-        if (!QFile(filename + ".TextGrid").exists()) {
+        QString filenameTextGrid = filename + ".TextGrid";
+        if (!QFile(filenameTextGrid).exists()) filenameTextGrid = filename + ".textgrid";
+        if (!QFile(filenameTextGrid).exists()) {
             ui->textProgress->append(QString("Cannot find file: %1").arg(filename + ".TextGrid"));
             continue;
         }
-        if (!QFile(filename + ".PitchTier").exists()) {
+        QString filenamePitchTier = filename + ".PitchTier";
+        if (!QFile(filenamePitchTier).exists()) filenamePitchTier = filename + ".pitchtier";
+        if (!QFile(filenamePitchTier).exists()) {
             ui->textProgress->append(QString("Cannot find file: %1").arg(filename + ".PitchTier"));
             continue;
         }
         AnnotationTierGroup *txg = new AnnotationTierGroup();
-        if (!PraatTextGrid::load(filename + ".TextGrid", txg)) {
+        if (!PraatTextGrid::load(filenameTextGrid, txg)) {
             ui->textProgress->append(QString("Error reading textgrid: %1").arg(filename + ".TextGrid"));
             delete txg;
             continue;
@@ -189,7 +193,7 @@ void MainWindow::on_actionDelexicalise_triggered()
             ui->textProgress->append(QString("Delexicalising in: %1").arg(filename + ".TextGrid"));
         }
         QString mbrolaFilename = QString("%1_delexicalised.pho").arg(filename);
-        resynth.createPhoFile(mbrolaFilename, tier_phones, "", filename + ".PitchTier");
+        resynth.createPhoFile(mbrolaFilename, tier_phones, "", filenamePitchTier);
         ui->textProgress->append(QString("Writing MBROLA file: %1").arg(mbrolaFilename));
         if (ui->checkSaveDelexicalisedTxg->isChecked()) {
             PraatTextGrid::save(QString("%1_delexicalised.TextGrid").arg(filename), txg);
